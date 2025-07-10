@@ -4,9 +4,12 @@ import ProductDetails from "@/app/components/ProductDetails";
 import { getProduct } from "@/lib/getProduct";
 
 export async function generateStaticParams() {
-  const res = await fetch("http://localhost:5000/api/account/getProducts", {
-    cache: "force-cache",
-  });
+  const res = await fetch(
+    "https://tech-commerce-expressserver.onrender.com/api/account/getProducts",
+    {
+      cache: "force-cache",
+    }
+  );
   const data = await res.json();
 
   return data.products.map((product: Product) => ({
