@@ -9,13 +9,16 @@ export const signUp = async (_: any, formData: FormData) => {
   const email = formData.get("email")?.toString() || "";
   const password = formData.get("password")?.toString() || "";
   try {
-    const res = await axios.post("http://localhost:5000/api/account/signUp", {
-      firstName,
-      lastName,
-      middleName,
-      email,
-      password,
-    });
+    const res = await axios.post(
+      "https://tech-commerce-expressserver.onrender.com/api/account/signUp",
+      {
+        firstName,
+        lastName,
+        middleName,
+        email,
+        password,
+      }
+    );
 
     //payload
     const userId = res.data.user._id;
@@ -55,10 +58,13 @@ export const logIn = async (_: any, formData: FormData) => {
   const email = formData.get("email")?.toString() || "";
   const password = formData.get("password")?.toString() || "";
   try {
-    const res = await axios.post("http://localhost:5000/api/account/logIn", {
-      email,
-      password,
-    });
+    const res = await axios.post(
+      "https://tech-commerce-expressserver.onrender.com/api/account/logIn",
+      {
+        email,
+        password,
+      }
+    );
 
     //payload
     const user = res.data.account;

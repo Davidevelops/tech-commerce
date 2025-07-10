@@ -14,7 +14,7 @@ export const submitOrder = async (prevState: any, formData: FormData) => {
 
   try {
     const newOrder = await axios.post(
-      "http://localhost:5000/api/account/submitOrder",
+      "https://tech-commerce-expressserver.onrender.com/api/account/submitOrder",
       {
         orderName,
         orderQuantity,
@@ -40,7 +40,7 @@ export const submitOrder = async (prevState: any, formData: FormData) => {
     if (error.response?.data?.errors) {
       return {
         success: false,
-        errors: error.response. data.errors,
+        errors: error.response.data.errors,
       };
     }
     return {
@@ -53,7 +53,7 @@ export const submitOrder = async (prevState: any, formData: FormData) => {
 export const getOrderDetails = async (orderId: string) => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/account/getOrder/${orderId}`,
+      `https://tech-commerce-expressserver.onrender.com/api/account/getOrder/${orderId}`,
       {
         withCredentials: true,
       }

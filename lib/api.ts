@@ -17,7 +17,9 @@ export async function getNewArrivals() {
 
 export async function getAllProducts() {
   try {
-    let res = await axios.get("http://localhost:5000/api/account/getProducts");
+    let res = await axios.get(
+      "https://tech-commerce-expressserver.onrender.com/api/account/getProducts"
+    );
     return res.data.products;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -31,7 +33,9 @@ export async function getAllProducts() {
 
 export async function getMobile() {
   try {
-    let res = await axios.get("http://localhost:5000/api/account/getMobile");
+    let res = await axios.get(
+      "https://tech-commerce-expressserver.onrender.com/api/account/getMobile"
+    );
     return res.data.mobile;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -45,7 +49,9 @@ export async function getMobile() {
 
 export async function getConsole() {
   try {
-    let res = await axios.get("http://localhost:5000/api/account/getConsole");
+    let res = await axios.get(
+      "https://tech-commerce-expressserver.onrender.com/api/account/getConsole"
+    );
     return res.data.console;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -59,7 +65,9 @@ export async function getConsole() {
 
 export async function getLaptop() {
   try {
-    let res = await axios.get("http://localhost:5000/api/account/getLaptop");
+    let res = await axios.get(
+      "https://tech-commerce-expressserver.onrender.com/api/account/getLaptop"
+    );
     return res.data.laptop;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -73,7 +81,9 @@ export async function getLaptop() {
 
 export async function getTablet() {
   try {
-    let res = await axios.get("http://localhost:5000/api/account/getTablet");
+    let res = await axios.get(
+      "https://tech-commerce-expressserver.onrender.com/api/account/getTablet"
+    );
     return res.data.tablet;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -87,7 +97,9 @@ export async function getTablet() {
 
 export async function getWearable() {
   try {
-    let res = await axios.get("http://localhost:5000/api/account/getWearable");
+    let res = await axios.get(
+      "https://tech-commerce-expressserver.onrender.com/api/account/getWearable"
+    );
     return res.data.wearable;
   } catch (error) {
     if (axios.isAxiosError(error)) {

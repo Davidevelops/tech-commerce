@@ -19,7 +19,9 @@ export type Order = {
 
 export async function getOrders() {
   try {
-    let res = await axios.get("http://localhost:5000/api/account/getOrders");
+    let res = await axios.get(
+      "https://tech-commerce-expressserver.onrender.com/api/account/getOrders"
+    );
     return res.data.orders;
   } catch (error) {
     if (axios.isAxiosError(error)) {
@@ -32,7 +34,7 @@ export async function getOrders() {
 export async function getUserOrders() {
   try {
     const res = await axios.get(
-      "http://localhost:5000/api/account/getUserOrder",
+      "https://tech-commerce-expressserver.onrender.com/api/account/getUserOrder",
       {
         withCredentials: true,
       }
