@@ -30,7 +30,7 @@ export default function RootLayout({
       >
         <Toaster position="top-center" />
         <Nav />
-        <div className="pt-0">{children}</div>
+        <div className="pt-12">{children}</div>
       </body>
     </html>
   );

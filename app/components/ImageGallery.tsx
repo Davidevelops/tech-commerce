@@ -10,9 +10,9 @@ export default function ImageGallery({
 }) {
   const [url, setUrl] = useState<number>(0);
   return (
-    <div className="max-w-[600px] min-w-[500px] overflow-clip">
+    <div className="min-w-[200px] overflow-clip ">
       {" "}
-      <div className="image-preview w-[400px] aspect-square relative mx-auto">
+      <div className="image-preview w-[250px] md:w-[500px] aspect-square relative mx-auto">
         <Image
           src={productImages[url]}
           alt="omsim"
@@ -20,10 +20,13 @@ export default function ImageGallery({
           className="object-contain"
         />
       </div>
-      <div className="product-images grid grid-cols-1 md:grid-cols-3  gap-2 ">
+      <div className="product-images grid grid-cols-3">
         {productImages &&
           productImages.map((img: string, index: number) => (
-            <div className=" w-full relative aspect-square" key={index}>
+            <div
+              className="w-[80px] md:w-[150px] relative aspect-square border rounded hover:cursor-pointer"
+              key={index}
+            >
               <Image
                 src={img}
                 fill

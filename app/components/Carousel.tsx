@@ -38,13 +38,17 @@ export default function MyCarousel() {
     >
       {slideContents.map((content, index) => (
         <SwiperSlide key={index}>
-          <div className="flex justify-center items-center p-4">
+          <div className="flex items-center justify-center p-4">
             <div className="details-container  w-[800px]">
-              <h1 className="text-7xl font-bold text-white">{content.name}</h1>
-              <p className="text-2xl  text-gray-200 mt-1">{content.desc}</p>
-              <div className="button-container mt-2 flex gap-2">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mt-18">
+                {content.name}
+              </h1>
+              <p className="text-sm md:text-xl lg:text-2xl  text-gray-200 mt-1">
+                {content.desc}
+              </p>
+              {/* <div className="button-container mt-2 flex gap-1">
                 {" "}
-                <Button className="bg-purple-900 hover:bg-purple-700">
+                <Button className="bg-purple-900 hover:bg-purple-700 text-sm">
                   Buy now
                 </Button>
                 <Button
@@ -53,13 +57,14 @@ export default function MyCarousel() {
                 >
                   View Details
                 </Button>
-              </div>
+              </div> */}
             </div>
             <Image
               src={content.path}
               width={500}
               height={600}
               alt="product"
+              className="w-[200px] h-[200px] sm:w-[300px] sm:h-[250px] md:w-[400px] md:h-[350px] lg:w-[500px] lg:h-[500px] mt-12"
             ></Image>
           </div>
         </SwiperSlide>

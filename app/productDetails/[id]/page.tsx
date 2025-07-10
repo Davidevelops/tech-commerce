@@ -3,6 +3,7 @@ import { Product } from "@/app/components/GetNewArrivals";
 import ImageGallery from "@/app/components/ImageGallery";
 
 import ProductDetails from "@/app/components/ProductDetails";
+
 export async function generateStaticParams() {
   let res = await fetch("http://localhost:5000/api/account/getProducts", {
     cache: "force-cache",
@@ -27,7 +28,7 @@ export default async function Details({ params }: { params: { id: string } }) {
   let product = await getProduct(params.id);
 
   return (
-    <div className="flex justify-center items-center gap-4 p-5 flex-wrap-reverse w-screen h-screen">
+    <div className="flex justify-center items-center gap-4 p-5 flex-wrap w-screen h-screen pt-36  md:pt-24 overflow-y-scroll">
       <ImageGallery productImages={product.productImages} />
       <ProductDetails productDetails={product} />
     </div>

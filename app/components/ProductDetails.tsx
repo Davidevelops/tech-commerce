@@ -22,8 +22,10 @@ export default function ProductDetails({
   }
   return (
     <div className="details-container w-[600px] flex flex-col gap-5 p-1">
-      <h1 className="text-7xl font-bold">{productDetails.productName}</h1>
-      <p className="text-xl font-semibold">
+      <h1 className="text-3xl md:text-5xl font-bold">
+        {productDetails.productName}
+      </h1>
+      <p className="line-clamp-4 font-semibold">
         {productDetails.productDescription}
       </p>
       <h1 className="flex text-xl font-bold items-center">

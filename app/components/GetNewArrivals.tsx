@@ -3,9 +3,10 @@
 import { useState, useEffect } from "react";
 import { getNewArrivals } from "@/lib/api";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { MoveRight } from "lucide-react";
 import { PhilippinePeso } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 export type Product = {
   _id: string;
   productName: string;
@@ -21,10 +22,10 @@ export type Product = {
   }[];
   createdAt: string;
   updatedAt: string;
-  __v: number;
 };
 
 export default function GetNewArrivals() {
+  const router = useRouter();
   const [arrivals, setArrivals] = useState<Product[]>([]);
   useEffect(() => {
     const getArrivals = async () => {
@@ -34,42 +35,50 @@ export default function GetNewArrivals() {
     getArrivals();
   }, []);
   return (
-    <div className="container mx-auto py-10">
-      <h1 className="text-center md:text-left text-5xl font-bold">
+    <div className="max-w-7xl container mx-auto px-4 py-10">
+      <h1 className="text-center md:text-left text-3xl font-bold">
         New Arrivals
       </h1>
-      <div className="container grid grid-cols-1 md:grid-cols-3 mx-auto gap-5 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-10">
         {arrivals &&
           arrivals.map((arrival, index) => (
             <Link
               href={`/productDetails/${arrival._id}`}
               key={index || arrival._id}
             >
-              <div className="border p-3 flex flex-col items-center justify-center w-full rounded-2xl shadow">
-                <div className="image flex items-center justify-center">
-                  {" "}
+              <div className="border p-3 flex flex-col items-center justify-center w-full h-full rounded-2xl shadow hover:shadow-lg transition-shadow">
+                <div className="image-container w-full flex items-cener justify-center">
                   <Image
                     src={`${arrival.productImages[0]}`}
-                    width={300}
-                    height={400}
+                    width={200}
+                    height={300}
                     alt="product"
-                  ></Image>
+                  />
                 </div>
-                <div className="product-details p-3">
-                  <h1 className="text-2xl font-bold">{arrival.productName}</h1>
-                  <p className="line-clamp-2 leading-6 text-gray-600 font-semibold">
-                    {arrival.productDescription}
-                  </p>
+                <div className="product-details p-3 w-full">
+                  <h1 className="text-xl md:text-2xl font-bold">
+                    {arrival.productName}
+                  </h1>
                 </div>
 
-                <div className="footer flex items-center mt-4 gap-3 p-3">
-                  <h1 className="price font-bold flex gap-1 text-2xl items-center">
-                    <PhilippinePeso /> {arrival.productPrice.toLocaleString()}
+                <div className="footer flex items-center mt-4 gap-3 p-3 w-full">
+                  <h1 className="price font-bold flex gap-1 text-xl md:text-2xl items-center">
+                    <PhilippinePeso size={20} />{" "}
+                    {arrival.productPrice.toLocaleString()}
                   </h1>
                 </div>
               </div>
             </Link>
           ))}
+        <div
+          className="border rounded-xl flex justify-center items-center gap-2 hover:cursor-pointer p-4"
+          onClick={() => router.push("/shop")}
+        >
+          <h1 className="text-xl sm:text-2xl md:text-3xl text-gray-600">
+            See More
+          </h1>
+          <MoveRight size={30} className="sm:w-10 sm:h-10" color="gray" />
+        </div>
       </div>
     </div>
   );
