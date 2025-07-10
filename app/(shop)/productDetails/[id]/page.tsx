@@ -1,9 +1,9 @@
-import React from "react";
 import { Product } from "@/app/components/GetNewArrivals";
 import ImageGallery from "@/app/components/ImageGallery";
 import ProductDetails from "@/app/components/ProductDetails";
-import { getProduct } from "@/lib/getProduct"; // ✅ Import from lib
+import { getProduct } from "@/lib/getProduct";
 
+// --- Static params for [id] route ---
 export async function generateStaticParams() {
   const res = await fetch("http://localhost:5000/api/account/getProducts", {
     cache: "force-cache",
@@ -15,7 +15,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Details({ params }: { params: { id: string } }) {
+// --- Infer the correct param type from static params ---
+type StaticParams = Awaited<ReturnType<typeof generateStaticParams>>[number];
+
+export default async function Details({ params }: { params: StaticParams }) {
   const product = await getProduct(params.id);
 
   return (
