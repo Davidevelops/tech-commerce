@@ -2,7 +2,7 @@ import axios from "axios";
 export async function getNewArrivals() {
   try {
     let res = await axios.get(
-      "http://localhost:5000/api/account/getNewArrivals"
+      "https://tech-commerce-expressserver.onrender.com/api/account/getNewArrivals"
     );
     return res.data.newArrivals;
   } catch (error) {
