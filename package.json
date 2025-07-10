@@ -16,6 +16,7 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@types/jsonwebtoken": "^9.0.10",
+    "@types/mongoose": "^5.11.96",
     "@types/swiper": "^5.4.3",
     "axios": "^1.10.0",
     "class-variance-authority": "^0.7.1",
