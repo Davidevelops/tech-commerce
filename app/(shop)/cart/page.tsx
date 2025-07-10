@@ -1,5 +1,5 @@
 "use server";
-import Cart from "../components/Cart";
+import Cart from "@/app/components/Cart";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import jwt from "jsonwebtoken";

@@ -2,9 +2,8 @@
 import { useState, useEffect } from "react";
 import { getAllProducts } from "@/lib/api";
 
-import ProductsCard from "../components/ProductsCard";
-import { useRouter } from "next/navigation";
-import { Product } from "../components/GetNewArrivals";
+import ProductsCard from "@/app/components/ProductsCard";
+import { Product } from "../../components/GetNewArrivals";
 
 export default function Shop() {
   const [products, setProducts] = useState<Product[]>([]);
