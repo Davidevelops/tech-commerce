@@ -37,15 +37,8 @@ export default function MyCarousel() {
     >
       {slideContents.map((content, index) => (
         <SwiperSlide key={index}>
-          <div className="flex items-center justify-center p-4">
-            <div className="details-container  w-[800px]">
-              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mt-18">
-                {content.name}
-              </h1>
-              <p className="text-sm md:text-xl lg:text-2xl  text-gray-200 mt-1">
-                {content.desc}
-              </p>
-              {/* <div className="button-container mt-2 flex gap-1">
+          <div className="flex flex-col sm:flex-row-reverse md:flex-row-reverse items-center justify-center p-4 gap-5">
+            {/* <div className="button-container mt-2 flex gap-1">
                 {" "}
                 <Button className="bg-purple-900 hover:bg-purple-700 text-sm">
                   Buy now
@@ -57,14 +50,22 @@ export default function MyCarousel() {
                   View Details
                 </Button>
               </div> */}
-            </div>
+
             <Image
               src={content.path}
               width={500}
               height={600}
               alt="product"
-              className="w-[200px] h-[200px] sm:w-[300px] sm:h-[250px] md:w-[400px] md:h-[350px] lg:w-[500px] lg:h-[500px] mt-12"
+              className="w-[300px] h-[300px] sm:w-[300px] sm:h-[250px] md:w-[400px] md:h-[350px] lg:w-[500px] lg:h-[500px] mt-8"
             ></Image>
+            <div className="details-container p-5  mb-8 mt-0 md:mt-16">
+              <h1 className="text-2xl sm:text-4xl md:text-3xl lg:text-5xl font-bold text-white text-start mt-0 md:pt-10">
+                {content.name}
+              </h1>
+              <p className="text-sm md:text-xl lg:text-2xl  text-gray-200 mt-1 mb-6 w-[400px] sm:w-[300px] md:w-[400px] lg:w-[500px]">
+                {content.desc}
+              </p>
+            </div>
           </div>
         </SwiperSlide>
       ))}

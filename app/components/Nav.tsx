@@ -28,8 +28,10 @@ export default function Nav() {
     }
   }
   return (
-    <header className="flex justify-between items-center p-3 bg-gray-950 text-white fixed w-screen z-2 ">
-      <h1>TechComm</h1>
+    <header className="flex justify-between items-center p-3 bg-gray-950 text-white fixed w-screen z-2">
+      <h1 className="text-2xl font-bold">
+        Tech<span className="text-purple-600">Comm</span>
+      </h1>
       <nav className="hidden md:flex gap-4 justify-center items-center font-semibold">
         <Link href={"/"}>Home</Link>
         <Link href={"/shop"}>Shop</Link>
